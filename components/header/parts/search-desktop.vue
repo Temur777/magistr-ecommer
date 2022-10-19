@@ -3,7 +3,7 @@
 <v-container fluid>
    <v-row>
      <v-col cols="2" class="gv-center">
-       <div class="logo">
+       <div class="logo" @click="home">
          BL
        </div>
      </v-col>
@@ -13,7 +13,7 @@
        </div>
      </v-col>
      <v-col cols="2"  class="gv-center">
-       <div class="subscribe">
+       <div class="subscribe" @click="subscribe">
          Subscribe
        </div>
      </v-col>
@@ -24,7 +24,15 @@
 
 <script>
 export default {
-  name: 'SearchDesktop'
+  name: 'SearchDesktop',
+  methods:{
+    subscribe(){
+      this.$router.push('/subscribe')
+    },
+    home(){
+      this.$router.push('/')
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -64,5 +72,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 </style>

@@ -89,7 +89,23 @@ export function createRouter() {
         path: '/',
         component: load('index'),
         name: 'HomePage'
-      }
+      },
+      {
+        path: '/subscribe',
+        component: load('subscribe/index'),
+        name: 'Subscribe'
+      },
+      {
+        path: '/book/:id',
+        component: load('book/detail'),
+        name: 'bookDetail'
+      },
+      {
+        path: '/literature',
+        component: load('category/literature'),
+        name: 'literature'
+      },
+
     ],
     linkActiveClass: 'nuxt-link-active',
     scrollBehavior: (to, from, savedPosition) => {

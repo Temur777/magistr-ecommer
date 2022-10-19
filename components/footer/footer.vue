@@ -62,7 +62,7 @@
                 </div>
                 <div class="messenger-box">
                   <img src="@/assets/images/phonee.svg" alt="">
-                  <span>+000 00 000000  </span>
+                  <span>+000 00 000001  </span>
                 </div>
               </div>
             </v-col>
@@ -75,7 +75,7 @@
 
 <script>
 export default {
-  name: 'footer'
+  name: 'footerss'
 
 }
 </script>

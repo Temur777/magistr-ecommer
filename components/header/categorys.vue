@@ -4,56 +4,56 @@
     <v-col offset="1" cols="10">
       <div>
         <ul class="navbar">
-          <li class="link-item">
-            <nuxt-link to="/">
+          <li class="link-item" :class="color==='literature' ? 'onn': 'off'" @click="navColor('literature')">
+            <nuxt-link to="/literature">
               <div class="link">
                 <img width="22" height="23" src="@/assets/images/navbar/books1.svg" alt=""/>
                 <span>Literature</span>
               </div>
             </nuxt-link>
           </li>
-          <li>
-            <nuxt-link to="/">
+          <li :class="color" @click="navColor('ebook')">
+            <nuxt-link to="/ebook">
               <div class="link">
                 <img width="22" height="23" src="@/assets/images/navbar/data-science 1.svg" alt=""/>
                 <span>E-books</span>
               </div>
             </nuxt-link>
           </li>
-          <li>
-            <nuxt-link to="/">
+          <li :class="color" @click="navColor('bestsellers')">
+            <nuxt-link to="/bestsellers">
               <div class="link">
                 <img width="22" height="23" src="@/assets/images/navbar/education 1.svg" alt=""/>
                 <span>Bestsellers</span>
               </div>
             </nuxt-link>
           </li>
-          <li>
-            <nuxt-link to="/">
+          <li :class="color" @click="navColor('children-literature')">
+            <nuxt-link to="/children-literature">
               <div class="link">
                 <img width="22" height="23" src="@/assets/images/navbar/son 1.svg" alt=""/>
                 <span>Children's literature</span>
               </div>
             </nuxt-link>
           </li>
-          <li>
-            <nuxt-link to="/">
+          <li :class="color" @click="navColor('publishers')">
+            <nuxt-link to="/publishers">
               <div class="link">
                 <img width="22" height="23" src="@/assets/images/navbar/blog 1.svg" alt=""/>
                 <span>Publishers</span>
               </div>
             </nuxt-link>
           </li>
-          <li>
-            <nuxt-link to="/">
+          <li :class="color" @click="navColor('authors')">
+            <nuxt-link to="/authors">
               <div class="link">
                 <img width="22" height="23" src="@/assets/images/navbar/about 1.svg" alt=""/>
                 <span>Authors</span>
               </div>
             </nuxt-link>
           </li>
-          <li>
-            <nuxt-link to="/">
+          <li :class="color" @click="navColor('discounts')">
+            <nuxt-link to="/discounts">
               <div class="link">
                 <img width="22" height="23" src="@/assets/images/navbar/percentage 1.svg" alt=""/>
                 <span>Discounts</span>
@@ -73,6 +73,16 @@
 <script>
 export default {
   name: 'categorys',
+  data(){
+    return{
+    color: ''
+    }
+  },
+  methods:{
+    navColor(item){
+      this.color = item
+    }
+  }
 }
 </script>
 <style scoped>
@@ -110,5 +120,8 @@ export default {
   padding: 0;
   width: 90%;
   margin: 0 auto;
+}
+.onn span{
+  color: #00b2a9 !important;
 }
 </style>
