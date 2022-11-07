@@ -1,5 +1,5 @@
 <template>
- <v-container fluid>
+ <v-container >
    <v-row >
      <v-col cols="12">
        <v-row style="padding: 20px 26px 10px 26px">
@@ -60,7 +60,7 @@ export default {
 <style scoped>
 .collectoin img{
   width: 100%;
-  height: 441px !important;
+  height: 341px !important;
 }
 .collectoin {
   border-radius: 10px;
@@ -74,7 +74,7 @@ export default {
 .collection-banner{
   font-style: normal;
   font-weight: 400;
-  font-size: 28px;
+  font-size: 24px;
   line-height: 36px;
   color: white;
   position: absolute;

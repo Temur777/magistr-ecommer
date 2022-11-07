@@ -1,10 +1,9 @@
 import colors from 'vuetify/es5/util/colors'
 import {join} from "path";
-import webpack from 'webpack'
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  ssr: true,
-  rootDir: __dirname,
+  ssr: false,
+ rootDir: __dirname,
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - libritary',
@@ -49,7 +48,21 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/proxy',
+    '@nuxtjs/toast'
   ],
+  toast: {
+    position: 'top-center',
+    register: [ // Register custom toasts
+      {
+        name: 'my-error',
+        message: 'Error',
+        options: {
+          type: 'error'
+        }
+      }
+    ]
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
@@ -75,62 +88,16 @@ export default {
       collapseWhitespace: false
     }
   },
+   proxy: {
+  '/api': {
+    target: "https://market-online-book.herokuapp.com",
+    secure: false,
+    pathRewrite: { '^/api': '' }
+  }
+},
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    filenames: {
-      app: ({ isDev }) => (isDev ? `[name].modern.js` : `[name].modern.js?v=[contenthash:7]`),
-      chunk: ({ isDev }) => (isDev ? `[name].modern.js` : `[name].modern.js?v=[contenthash:7]`),
-      img: () => '[path][name].[ext]',
-      css: ({ isDev }) => (isDev ? '[name].css' : '[name].css?v=[contenthash:7]')
-    },
-    babel: {
-      compact: true
-    },
-    splitChunks: {
-      layouts: false,
-      pages: true,
-      commons: true
-    },
-    html: {
-      minify: {
-        collapseWhitespace: true,
-        collapseInlineTagWhitespace: true,
-        collapseBooleanAttributes: true,
-        decodeEntities: true,
-        minifyCSS: true,
-        minifyJS: true,
-        processConditionalComments: true,
-        removeEmptyAttributes: true,
-        removeRedundantAttributes: true,
-        trimCustomFragments: true,
-        useShortDoctype: true
-      }
-    },
-    transpile: ['vee-validate/dist/rules', 'vue-instantsearch', 'instantsearch.js/es'],
-    parallel: false,
-    cache: false,
-    hardSource: false,
-    plugins: [
-      new webpack.ProvidePlugin({
-        _: 'lodash'
-      })
-    ],
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config, { isDev }) {
-      if (isDev) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /node_modules/,
-          options: {
-            fix: true
-          }
-        })
-      }
-    }
+    extend(config, { isDev }) {}
   },
   server: {
     port: 3000,
