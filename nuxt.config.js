@@ -88,13 +88,13 @@ export default {
       collapseWhitespace: false
     }
   },
-   proxy: {
-  '/api': {
-    target: "https://market-online-book.herokuapp.com",
-    secure: false,
-    pathRewrite: { '^/api': '' }
-  }
-},
+//    proxy: {
+//   '/api': {
+//     target: "https://market-online-book.herokuapp.com",
+//     secure: false,
+//     pathRewrite: { '^/api': '' }
+//   }
+// },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     extend(config, { isDev }) {}
